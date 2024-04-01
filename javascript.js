@@ -15,8 +15,8 @@ for (let i = 0; i < 16; i++) {
         gridDivs.style.transition = "all 1s";
     });
     // Remove hover effect
-    gridDivs.addEventListener("mouseout", () => {
-        gridDivs.style.backgroundColor = "beige";
-        gridDivs.style.transition = "all 4s";
-    });
+    // gridDivs.addEventListener("mouseout", () => {
+    //     gridDivs.style.backgroundColor = "beige";
+    //     gridDivs.style.transition = "all 4s";
+    // });
 }
