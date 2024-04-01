@@ -1,11 +1,11 @@
 // Creates a 16x16 grid of square divs
 let grid = document.querySelector(".container");
 grid.style.cssText = "display: flex; flex-wrap: wrap; justify-content: center; align-items: center"; +
-    "width: 990px; height: 990px;";
+    "min-width: 990px; min-height: 990px;";
 
 for (let i = 0; i < (16**2); i++) {
     let gridDivs = document.createElement("div");
-    gridDivs.style.cssText = "color: blue; background: beige; min-width:50px; min-height: 50px" 
+    gridDivs.style.cssText = "color: blue; background: beige; width: 50px; height: 50px; flex: 1 0 auto;";
     grid.appendChild(gridDivs);
     gridDivs.addEventListener("mouseenter", () => {
         gridDivs.style.backgroundColor = "lightblue";
@@ -34,7 +34,7 @@ function removeGrid(userAnswer) {
 function newGrid(userAnswer) {
     for (let i = 0; i < (userAnswer**2); i++) {
         let gridDivs = document.createElement("div");
-        gridDivs.style.cssText = "background: beige; min-width: 10px; min-height: 10px;"
+        gridDivs.style.cssText = `background: beige; width: ${990/userAnswer}px; height: ${990/userAnswer}px; flex: 1 0 auto;`;
         grid.appendChild(gridDivs);
         gridDivs.addEventListener("mouseenter", () => {
             gridDivs.style.backgroundColor = "lightblue";
