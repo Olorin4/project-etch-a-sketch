@@ -8,8 +8,12 @@ for (let i = 0; i < 16; i++) {
     gridDivs.textContent = "Grid Divs";
     gridDivs.style.cssText = "color: blue; background: beige; min-width:150px; min-height: 150px; text-align: center;" +
         "display: flex; justify-content: center; align-items: center; ";
-    grid.appendChild(gridDivs).classList.add("gridDivs");
-    // Add hover effect
+    grid.appendChild(gridDivs);
+    addHoverEffect();
+};
+
+// Add hover effect
+function addHoverEffect() {
     gridDivs.addEventListener("mouseenter", () => {
         gridDivs.style.backgroundColor = "lightblue";
         gridDivs.style.transition = "all 1s";
@@ -20,14 +24,31 @@ let userAnswer;
 let btn = document.addEventListener("click", () => {
     userAnswer = prompt("How many squares do you want your grid to have?");
     removeGrid(userAnswer);
-    return userAnswer;
+    newGrid(userAnswer);
 });
 
 function removeGrid(userAnswer) {
     while (userAnswer > 100 || userAnswer < 4) {
-        userAnswer = prompt("Please select a number from 4 to 100.");
+        userAnswer = prompt("Please select a valid number from 4 to 100.");
     }
     while (grid.firstChild) {
         grid.removeChild(grid.firstChild);
     }
+    return userAnswer;
+}
+
+function newGrid(userAnswer) {
+    for (let i = 0; i < userAnswer; i++) {
+        gridDivs = document.createElement("div");
+        gridDivs.textContent = "Grid Divs";
+        gridDivs.style.cssText = "color: blue; background: beige; min-width:150px; min-height: 150px; text-align: center;" +
+            "display: flex; justify-content: center; align-items: center; ";
+        grid.appendChild(gridDivs);
+        // Add hover effect
+        gridDivs.addEventListener("mouseenter", () => {
+            gridDivs.style.backgroundColor = "lightblue";
+            gridDivs.style.transition = "all 1s";
+        });
+    }
+    return userAnswer;
 }
