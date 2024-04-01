@@ -1,16 +1,15 @@
 // Creates a 16x16 grid of square divs
 let grid = document.querySelector(".container");
-grid.style.cssText = "display: flex; justify-content: center; align-items: center; flex-wrap: wrap;" +
-    "max-width: 800px; max-height: 800px; transition: background-color 0.3s ease;";
+grid.style.cssText = "display: flex; flex-wrap: wrap; justify-content: center; align-items: center"; +
+    "width: 990px; height: 990px;";
 
 for (let i = 0; i < (16**2); i++) {
     let gridDivs = document.createElement("div");
-    gridDivs.style.cssText = "color: blue; background: beige; min-width: 20px; min-height: 20px;" + 
-        "display: flex; justify-content: center; align-items: center; ";
+    gridDivs.style.cssText = "color: blue; background: beige; min-width:50px; min-height: 50px" 
     grid.appendChild(gridDivs);
     gridDivs.addEventListener("mouseenter", () => {
         gridDivs.style.backgroundColor = "lightblue";
-        gridDivs.style.transition = "all 0.5s";
+        gridDivs.style.transition = "all 0.3s";
     });
 };
 
@@ -35,12 +34,10 @@ function removeGrid(userAnswer) {
 function newGrid(userAnswer) {
     for (let i = 0; i < (userAnswer**2); i++) {
         let gridDivs = document.createElement("div");
-        gridDivs.style.cssText = "background: beige; min-width: 10px; min-height: 10px;" +
-            "display: flex; justify-content: center; align-items: center; ";
+        gridDivs.style.cssText = "background: beige; min-width: 10px; min-height: 10px;"
         grid.appendChild(gridDivs);
         gridDivs.addEventListener("mouseenter", () => {
             gridDivs.style.backgroundColor = "lightblue";
-            gridDivs.style.transition = "all 1s";
         });
     }
     return userAnswer;
