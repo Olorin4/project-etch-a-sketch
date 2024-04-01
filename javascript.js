@@ -2,29 +2,26 @@
 let grid = document.querySelector(".container");
 grid.style.cssText = "display: flex; justify-content: center; align-items: center; flex-wrap: wrap;" +
     "max-width: 740px; max-height: 740px; transition: background-color 0.3s ease;";
-let gridDivs;
+
 for (let i = 0; i < 16; i++) {
+    let gridDivs;
     gridDivs = document.createElement("div");
     gridDivs.textContent = "Grid Divs";
     gridDivs.style.cssText = "color: blue; background: beige; min-width:150px; min-height: 150px; text-align: center;" +
         "display: flex; justify-content: center; align-items: center; ";
     grid.appendChild(gridDivs);
-    addHoverEffect();
-};
-
-// Add hover effect
-function addHoverEffect() {
     gridDivs.addEventListener("mouseenter", () => {
         gridDivs.style.backgroundColor = "lightblue";
         gridDivs.style.transition = "all 1s";
     });
-}
+};
 
 let userAnswer;
-let btn = document.addEventListener("click", () => {
-    userAnswer = prompt("How many squares do you want your grid to have?");
-    removeGrid(userAnswer);
-    newGrid(userAnswer);
+let btn = document.querySelector("button");
+btn.addEventListener("click", () => {
+userAnswer = prompt("How many squares do you want your grid to have?");
+removeGrid(userAnswer);
+newGrid(userAnswer);
 });
 
 function removeGrid(userAnswer) {
@@ -39,6 +36,7 @@ function removeGrid(userAnswer) {
 
 function newGrid(userAnswer) {
     for (let i = 0; i < userAnswer; i++) {
+        let gridDivs;
         gridDivs = document.createElement("div");
         gridDivs.textContent = "Grid Divs";
         gridDivs.style.cssText = "color: blue; background: beige; min-width:150px; min-height: 150px; text-align: center;" +
