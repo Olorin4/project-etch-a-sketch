@@ -1,27 +1,25 @@
-// Function for creating a 16x16 grid of square divs
+// Creates a 16x16 grid of square divs
 let grid = document.querySelector(".container");
 grid.style.cssText = "display: flex; justify-content: center; align-items: center; flex-wrap: wrap;" +
-    "max-width: 740px; max-height: 740px; transition: background-color 0.3s ease;";
+    "max-width: 800px; max-height: 800px; transition: background-color 0.3s ease;";
 
-for (let i = 0; i < 16; i++) {
-    let gridDivs;
-    gridDivs = document.createElement("div");
-    gridDivs.textContent = "Grid Divs";
-    gridDivs.style.cssText = "color: blue; background: beige; min-width:150px; min-height: 150px; text-align: center;" +
+for (let i = 0; i < (16**2); i++) {
+    let gridDivs = document.createElement("div");
+    gridDivs.style.cssText = "color: blue; background: beige; min-width: 20px; min-height: 20px;" + 
         "display: flex; justify-content: center; align-items: center; ";
     grid.appendChild(gridDivs);
     gridDivs.addEventListener("mouseenter", () => {
         gridDivs.style.backgroundColor = "lightblue";
-        gridDivs.style.transition = "all 1s";
+        gridDivs.style.transition = "all 0.5s";
     });
 };
 
 let userAnswer;
 let btn = document.querySelector("button");
 btn.addEventListener("click", () => {
-userAnswer = prompt("How many squares do you want your grid to have?");
-removeGrid(userAnswer);
-newGrid(userAnswer);
+    userAnswer = prompt("How many squares do you want your grid to have?");
+    removeGrid(userAnswer);
+    newGrid(userAnswer);
 });
 
 function removeGrid(userAnswer) {
@@ -35,14 +33,11 @@ function removeGrid(userAnswer) {
 }
 
 function newGrid(userAnswer) {
-    for (let i = 0; i < userAnswer; i++) {
-        let gridDivs;
-        gridDivs = document.createElement("div");
-        gridDivs.textContent = "Grid Divs";
-        gridDivs.style.cssText = "color: blue; background: beige; min-width:150px; min-height: 150px; text-align: center;" +
+    for (let i = 0; i < (userAnswer**2); i++) {
+        let gridDivs = document.createElement("div");
+        gridDivs.style.cssText = "background: beige; min-width: 10px; min-height: 10px;" +
             "display: flex; justify-content: center; align-items: center; ";
         grid.appendChild(gridDivs);
-        // Add hover effect
         gridDivs.addEventListener("mouseenter", () => {
             gridDivs.style.backgroundColor = "lightblue";
             gridDivs.style.transition = "all 1s";

@@ -21,6 +21,7 @@ body {
 }
 
 button {
-    width: 100px;
+    width: 120px;
     margin: 20px;
+    padding: 5px;
 }
