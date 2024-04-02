@@ -6,7 +6,11 @@ for (let i = 0; i < (16**2); i++) {
     gridDivs.style.cssText = "color: blue; background: beige; height: 48px; flex: 1 0 48px;";
     grid.appendChild(gridDivs);
     gridDivs.addEventListener("mouseenter", () => {
-        gridDivs.style.backgroundColor = "lightblue";
+        // Generate random values for red, green, and blue components
+        let red = Math.floor(Math.random() * 256);
+        let green = Math.floor(Math.random() * 256);
+        let blue = Math.floor(Math.random() * 256);
+        gridDivs.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
         gridDivs.style.transition = "all 0.3s";
     });
 };
@@ -39,7 +43,12 @@ function createNewGrid(userAnswer) {
         gridDivs.style.cssText = `background: beige; width: ${768/userAnswer}px; height: ${768/userAnswer}px; flex: 1 0 auto;`;
         grid.appendChild(gridDivs);
         gridDivs.addEventListener("mouseenter", () => {
-            gridDivs.style.backgroundColor = "lightblue";
+            // Generate random values for red, green, and blue components
+            let red = Math.floor(Math.random() * 256);
+            let green = Math.floor(Math.random() * 256);
+            let blue = Math.floor(Math.random() * 256);
+            gridDivs.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+            gridDivs.style.transition = "all 0.3s";
         });
     }
     return userAnswer;
