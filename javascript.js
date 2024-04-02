@@ -1,21 +1,23 @@
 let grid = document.querySelector(".container");
 
-// Create a 16x16 grid of square divs
-for (let i = 0; i < (16**2); i++) {
-    let gridDivs = document.createElement("div");
-    gridDivs.style.cssText = "color: blue; background: beige; height: 48px; flex: 1 0 48px;";
-    grid.appendChild(gridDivs);
-    gridDivs.addEventListener("mouseenter", () => {
-        // Generate random values for red, green, and blue components
-        let red = Math.floor(Math.random() * 256);
-        let green = Math.floor(Math.random() * 256);
-        let blue = Math.floor(Math.random() * 256);
-        gridDivs.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-        gridDivs.style.transition = "all 0.3s";
-    });
-};
-
+// Create a grid of square divs
 let userAnswer;
+function createNewGrid(userAnswer) {
+    for (let i = 0; i < (userAnswer**2); i++) {
+        let gridDivs = document.createElement("div");
+        gridDivs.style.cssText = `background: beige; width: ${768/userAnswer}px; height: ${768/userAnswer}px; flex: 1 0 auto;`;
+        grid.appendChild(gridDivs);
+        gridDivs.addEventListener("mouseenter", () => {
+            let red = Math.floor(Math.random() * 256);
+            let green = Math.floor(Math.random() * 256);
+            let blue = Math.floor(Math.random() * 256);
+            gridDivs.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+            gridDivs.style.transition = "all 0.3s";
+        });
+    }
+}
+createNewGrid(16);
+
 let btn = document.querySelector("button");
 btn.addEventListener("click", question => {
     userAnswer = prompt("How many squares (from 4 to 100) do you want your grid to have?");
@@ -33,22 +35,6 @@ function removeGrid(userAnswer) {
     }
     while (grid.firstChild) {
         grid.removeChild(grid.firstChild);
-    }
-    return userAnswer;
-}
-
-function createNewGrid(userAnswer) {
-    for (let i = 0; i < (userAnswer**2); i++) {
-        let gridDivs = document.createElement("div");
-        gridDivs.style.cssText = `background: beige; width: ${768/userAnswer}px; height: ${768/userAnswer}px; flex: 1 0 auto;`;
-        grid.appendChild(gridDivs);
-        gridDivs.addEventListener("mouseenter", () => {
-            let red = Math.floor(Math.random() * 256);
-            let green = Math.floor(Math.random() * 256);
-            let blue = Math.floor(Math.random() * 256);
-            gridDivs.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-            gridDivs.style.transition = "all 0.3s";
-        });
     }
     return userAnswer;
 }
