@@ -18,16 +18,17 @@ function createGrid(gridSize) {
     }
 }
 
-btn.addEventListener("click", getUserAnswer);
-function getUserAnswer(gridSize) {
+// Ask user for a grid size
+btn.addEventListener("click", getUserAnswer => {
     gridSize = prompt("How many squares (from 1 to 100) do you want your grid to have?");
     if (gridSize === null) {
     } else if (gridSize > 100 || gridSize <= 0 || isNaN(gridSize)) {
         gridSize = prompt("Please select a valid number from 1 to 100.");
     } else {
+        // Remove old grid
         while (grid.firstChild) {
             grid.removeChild(grid.firstChild);
         }
         createGrid(gridSize);
     }
-}
+});
