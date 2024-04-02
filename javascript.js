@@ -9,6 +9,7 @@ function createGrid(gridSize) {
         let gridDivs = document.createElement("div");
         gridDivs.style.cssText = `background: beige; width: ${768/gridSize}px; height: ${768/gridSize}px; flex: 1 0 auto;`;
         grid.appendChild(gridDivs);
+        // Add hover effect
         gridDivs.addEventListener("mouseenter", () => {
             let red = Math.floor(Math.random() * 256);
             let green = Math.floor(Math.random() * 256);
