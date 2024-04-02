@@ -19,20 +19,20 @@ function createNewGrid(userAnswer) {
 }
 
 let btn = document.querySelector("button");
-btn.addEventListener("click", question => {
+btn.addEventListener("click", getUserAnswer);
+function getUserAnswer(userAnswer) {
     userAnswer = prompt("How many squares (from 4 to 100) do you want your grid to have?");
     if (userAnswer === null) {
         console.log("User canceled the prompt.");
+    } else if (userAnswer > 100 || userAnswer <= 0 || isNaN(userAnswer)) {
+        userAnswer = prompt("Please select a valid number from 4 to 100.");
     } else {
         removeGrid(userAnswer);
         createNewGrid(userAnswer);
     }
-});
+}
 
 function removeGrid(userAnswer) {
-    while (userAnswer >= 100 || userAnswer < 4) {
-        userAnswer = prompt("Please select a valid number from 4 to 100.");
-    }
     while (grid.firstChild) {
         grid.removeChild(grid.firstChild);
     }
