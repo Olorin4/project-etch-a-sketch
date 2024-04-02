@@ -27,13 +27,13 @@ button {
 }
 
 .container {
-    flex: 0 0 800px;
+    flex: 0 0 768px;
     /* height: auto; */
     display: flex; 
     flex-wrap: wrap; 
     justify-content: center; 
     align-items: center;
-    width: 800px; 
+    width: 768px; 
 
 }
 

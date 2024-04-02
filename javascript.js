@@ -1,11 +1,9 @@
-// Creates a 16x16 grid of square divs
 let grid = document.querySelector(".container");
-// grid.style.cssText = "display: flex; flex-wrap: wrap; justify-content: center; align-items: center"; +
-//     "max-width: 990px; max-height: 990px;";
 
+// Create a 16x16 grid of square divs
 for (let i = 0; i < (16**2); i++) {
     let gridDivs = document.createElement("div");
-    gridDivs.style.cssText = "color: blue; background: beige; height: 50px; flex: 1 0 50px;";
+    gridDivs.style.cssText = "color: blue; background: beige; height: 48px; flex: 1 0 48px;";
     grid.appendChild(gridDivs);
     gridDivs.addEventListener("mouseenter", () => {
         gridDivs.style.backgroundColor = "lightblue";
@@ -15,10 +13,14 @@ for (let i = 0; i < (16**2); i++) {
 
 let userAnswer;
 let btn = document.querySelector("button");
-btn.addEventListener("click", () => {
+btn.addEventListener("click", question => {
     userAnswer = prompt("How many squares (from 4 to 100) do you want your grid to have?");
-    removeGrid(userAnswer);
-    newGrid(userAnswer);
+    if (userAnswer === null) {
+        console.log("User canceled the prompt.");
+    } else {
+        removeGrid(userAnswer);
+        createNewGrid(userAnswer);
+    }
 });
 
 function removeGrid(userAnswer) {
@@ -31,10 +33,10 @@ function removeGrid(userAnswer) {
     return userAnswer;
 }
 
-function newGrid(userAnswer) {
+function createNewGrid(userAnswer) {
     for (let i = 0; i < (userAnswer**2); i++) {
         let gridDivs = document.createElement("div");
-        gridDivs.style.cssText = `background: beige; width: ${800/userAnswer}px; height: ${800/userAnswer}px; flex: 1 0 auto;`;
+        gridDivs.style.cssText = `background: beige; width: ${768/userAnswer}px; height: ${768/userAnswer}px; flex: 1 0 auto;`;
         grid.appendChild(gridDivs);
         gridDivs.addEventListener("mouseenter", () => {
             gridDivs.style.backgroundColor = "lightblue";
