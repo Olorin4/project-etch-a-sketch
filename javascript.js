@@ -22,7 +22,6 @@ btn.addEventListener("click", getUserAnswer);
 function getUserAnswer(gridSize) {
     gridSize = prompt("How many squares (from 1 to 100) do you want your grid to have?");
     if (gridSize === null) {
-        console.log("User canceled the prompt.");
     } else if (gridSize > 100 || gridSize <= 0 || isNaN(gridSize)) {
         gridSize = prompt("Please select a valid number from 1 to 100.");
     } else {
