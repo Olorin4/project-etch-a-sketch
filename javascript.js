@@ -21,11 +21,11 @@ function createNewGrid(userAnswer) {
 let btn = document.querySelector("button");
 btn.addEventListener("click", getUserAnswer);
 function getUserAnswer(userAnswer) {
-    userAnswer = prompt("How many squares (from 4 to 100) do you want your grid to have?");
+    userAnswer = prompt("How many squares (from 1 to 100) do you want your grid to have?");
     if (userAnswer === null) {
         console.log("User canceled the prompt.");
     } else if (userAnswer > 100 || userAnswer <= 0 || isNaN(userAnswer)) {
-        userAnswer = prompt("Please select a valid number from 4 to 100.");
+        userAnswer = prompt("Please select a valid number from 1 to 100.");
     } else {
         removeGrid(userAnswer);
         createNewGrid(userAnswer);
