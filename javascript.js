@@ -2,6 +2,7 @@ let grid = document.querySelector(".container");
 
 // Create a grid of square divs
 let userAnswer;
+createNewGrid(16);
 function createNewGrid(userAnswer) {
     for (let i = 0; i < (userAnswer**2); i++) {
         let gridDivs = document.createElement("div");
@@ -16,7 +17,6 @@ function createNewGrid(userAnswer) {
         });
     }
 }
-createNewGrid(16);
 
 let btn = document.querySelector("button");
 btn.addEventListener("click", question => {
