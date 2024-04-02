@@ -43,7 +43,6 @@ function createNewGrid(userAnswer) {
         gridDivs.style.cssText = `background: beige; width: ${768/userAnswer}px; height: ${768/userAnswer}px; flex: 1 0 auto;`;
         grid.appendChild(gridDivs);
         gridDivs.addEventListener("mouseenter", () => {
-            // Generate random values for red, green, and blue components
             let red = Math.floor(Math.random() * 256);
             let green = Math.floor(Math.random() * 256);
             let blue = Math.floor(Math.random() * 256);
@@ -53,10 +52,3 @@ function createNewGrid(userAnswer) {
     }
     return userAnswer;
 }
-
-// Transform the behavior of a square when interacting with the mouse by introducing a series of modifications.
-// Rather than squares being the same color throughout the grid, randomize the squares’ RGB values with each 
-// interaction.
-
-
-
