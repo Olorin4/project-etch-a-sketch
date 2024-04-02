@@ -27,14 +27,9 @@ function getUserAnswer(userAnswer) {
     } else if (userAnswer > 100 || userAnswer <= 0 || isNaN(userAnswer)) {
         userAnswer = prompt("Please select a valid number from 1 to 100.");
     } else {
-        removeGrid(userAnswer);
+        while (grid.firstChild) {
+            grid.removeChild(grid.firstChild);
+            }
         createNewGrid(userAnswer);
     }
-}
-
-function removeGrid(userAnswer) {
-    while (grid.firstChild) {
-        grid.removeChild(grid.firstChild);
-    }
-    return userAnswer;
 }
