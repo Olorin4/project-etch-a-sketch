@@ -9,8 +9,8 @@ function createGrid(gridSize) {
         let gridDivs = document.createElement("div");
         gridDivs.style.cssText = `background: beige; width: ${768/gridSize}px; height: ${768/gridSize}px; flex: 1 0 auto;`;
         grid.appendChild(gridDivs);
-        // Add hover effect
-        gridDivs.addEventListener("mouseenter", () => {
+        
+        gridDivs.addEventListener("mouseenter", addHoverEffect => {
             let red = Math.floor(Math.random() * 256);
             let green = Math.floor(Math.random() * 256);
             let blue = Math.floor(Math.random() * 256);
@@ -19,7 +19,6 @@ function createGrid(gridSize) {
     }
 }
 
-// Ask user for a grid size
 btn.addEventListener("click", getUserAnswer => {
     gridSize = prompt("How many squares (from 1 to 100) do you want your grid to have?");
     if (gridSize === null) {
