@@ -26,4 +26,20 @@ button {
     padding: 5px;
 }
 
+.container {
+    flex: 0 0 800px;
+    /* height: auto; */
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center;
+    width: 800px; 
+
+}
+
+/* .container:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+} */
 
