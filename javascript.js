@@ -28,7 +28,7 @@ function getUserAnswer(gridSize) {
     } else {
         while (grid.firstChild) {
             grid.removeChild(grid.firstChild);
-            }
-        createGrid(gridSize);
+        }
     }
+    createGrid(gridSize);
 }
